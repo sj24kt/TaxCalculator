@@ -6,22 +6,65 @@
 //  Copyright (c) 2015 Sherrie Jones. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RootViewController.h"
 
-@interface ViewController ()
+@interface RootViewController ()
+
+@property (strong, nonatomic) IBOutlet UITextField *priceTextField;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UILabel *resultLabel;
+
+@property double caTax;
+@property double chiTax;
+@property double nyTax;
 
 @end
 
-@implementation ViewController
+@implementation RootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.priceTextField.delegate = self;
+    //self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+
+    CGRect frame= self.segmentedControl.frame;
+    [self.segmentedControl setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 100)];
+
+    self.caTax = .075;
+    self.chiTax = .0925;
+    self.nyTax = .045;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    self.priceTextField.placeholder = @"0.00";
+    self.resultLabel.text = @"sales tax";
+    [self.priceTextField resignFirstResponder];
+    return YES;
 }
+
+- (IBAction)onCalculateButtonTapped:(UIButton *)sender {
+
+    NSString *enteredText = self.priceTextField.text;
+    double enteredValue = enteredText.intValue;
+
+    if (self.segmentedControl.selectedSegmentIndex == 0)
+    {
+        double result = enteredValue * self.caTax;
+        self.resultLabel.text = [NSString stringWithFormat:@"%.2f", result];
+    }
+    else if (self.segmentedControl.selectedSegmentIndex == 1)
+    {
+        double result = enteredValue * self.chiTax;
+        self.resultLabel.text = [NSString stringWithFormat:@"%.2f", result];
+    }
+    else
+    {
+        double result = enteredValue * self.nyTax;
+        self.resultLabel.text = [NSString stringWithFormat:@"%.2f", result];
+    }
+
+}
+
 
 @end
