@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pq9-YN-Ucc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Tax Calculator-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="RootViewController" sceneMemberID="viewController">
@@ -149,14 +149,14 @@
                             <constraint firstAttribute="centerX" secondItem="Q5R-n9-Gc6" secondAttribute="centerX" id="Gu2-mH-9eg"/>
                             <constraint firstItem="Bxp-is-m7q" firstAttribute="top" secondItem="QiF-v0-dMf" secondAttribute="bottom" constant="14" id="HJI-c5-9BD"/>
                             <constraint firstItem="QiF-v0-dMf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="Hct-48-NmL">
-                                <variation key="widthClass=compact" constant="90"/>
+                                <variation key="widthClass=compact" constant="63"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="9tj-Mg-89q" secondAttribute="centerX" id="RVO-Wl-68m"/>
                             <constraint firstAttribute="centerX" secondItem="Bxp-is-m7q" secondAttribute="centerX" id="XrQ-E0-GQd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9tj-Mg-89q" secondAttribute="trailing" constant="109" id="Zz1-8w-eu9"/>
                             <constraint firstItem="Bxp-is-m7q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="109" id="f2J-TU-w84"/>
                             <constraint firstItem="RsK-Kk-Ux4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="12" id="glB-eu-sDe">
-                                <variation key="widthClass=compact" constant="35"/>
+                                <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="9tj-Mg-89q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="109" id="jLB-6r-PXv"/>
                             <constraint firstItem="QiF-v0-dMf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="109" id="jyZ-4d-m74"/>
@@ -234,6 +234,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Tax Calculator" id="Wxj-U7-248"/>
                     <connections>
                         <outlet property="priceTextField" destination="QiF-v0-dMf" id="fBZ-50-1Th"/>
                         <outlet property="resultLabel" destination="9tj-Mg-89q" id="kU8-JB-Mcw"/>
@@ -241,6 +242,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jbe-RP-sDx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pq9-YN-Ucc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f1O-vN-L0m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="1mE-yR-0dp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="inb-vd-j8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="379.5" y="325"/>
         </scene>
